@@ -14,6 +14,6 @@ Interest Rate Modeling:
 
 * Vasicek Model: The model describes the movement of an interest rate as a factor composed of market risk, time, and equilibrium value, where the rate tends to revert towards the mean of those factors over time. Essentially, it predicts where interest rates will end up at the end of a given period of time, given current market volatility, the long-run mean interest rate value, and a given market risk factor.
 
-* Cox-Ingersoll-Ross
+* Cox-Ingersoll-Ross: The CIR model describes the evolution of interest rates. It is a type of "one factor model" (short rate model) as it describes interest rate movements as driven by only one source of market risk. The model can be used in the valuation of interest rate derivatives as an extensoin of the Vasice Model.
 
 * Heath-Jarrow-Morton
