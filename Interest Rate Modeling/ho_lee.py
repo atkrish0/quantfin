@@ -3,6 +3,7 @@
 # Ho-Lee Model
 
 from math import *
+import numpy as np
 from scipy.stats import norm
 
 # interest rate parameters:
@@ -44,4 +45,6 @@ d1 = ((log((POB)/(K*P1)))/(sigmaP)) + (sigmaP*0.5)
 d2 = d1 - sigmaP
 c = POB*norm.cdf(d1) - K*PO*norm.cdf(d2)  # call
 p = PO*K*norm.cdf(-d2) - POB*norm.cdf(-d1)  # put
-print('Price of the European Call =',c)
+
+print('Price of the European Call = {}'.format(c))
+print('Price of the European Put = {}'.format(p))
