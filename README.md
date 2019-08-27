@@ -18,4 +18,4 @@ Interest Rate Modeling:
 
 * Ho-Lee: A short rate model widely used in the pricing of bond options, swaptions and other interest rate derivatives, and in modeling future interest rates. Market price calibration and the subsequent valuation of bond options, swaptions and other interest rate derivatives, is typically performed via a binomial lattice based model. This model does allow the generation of negative rates and is alos not mean reverting. Hence, models like Hull-White have come up which are mean reverting with availabel lognormal variants.
 
-* Hull-White: 
+* Hull-White: In its most generic formulation, the Hull-White belongs to the class of no-arbitrage models that are able to fit today's term structure of interest rates. It is relatively straightforward to translate the mathematical description of the evolution of future interest rates onto a tree or lattice and so interest rate derivatives such as bermudan swaptions can be valued in the model. 
