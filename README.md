@@ -16,4 +16,6 @@ Interest Rate Modeling:
 
 * Cox-Ingersoll-Ross: The CIR model describes the evolution of interest rates. It is a type of "one factor model" (short rate model) as it describes interest rate movements as driven by only one source of market risk. The model can be used in the valuation of interest rate derivatives as an extensoin of the Vasice Model.
 
-* Heath-Jarrow-Morton
+* Ho-Lee: A short rate model widely used in the pricing of bond options, swaptions and other interest rate derivatives, and in modeling future interest rates. Market price calibration and the subsequent valuation of bond options, swaptions and other interest rate derivatives, is typically performed via a binomial lattice based model. This model does allow the generation of negative rates and is alos not mean reverting. Hence, models like Hull-White have come up which are mean reverting with availabel lognormal variants.
+
+* Hull-White: 
