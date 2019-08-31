@@ -1,5 +1,5 @@
 # Quant-Finance
-A repo to implement and experiment with various concepts within quantitative finance.
+A repository intended to implement and experiment with various concepts within quantitative finance, including but not limited to, Interest Rate Modeling, Stochastic Processes, Time Series Analysis, Asset Allocation, Statistical Arbitrage and Derivatives Pricing.
 
 
 ## Contents:
