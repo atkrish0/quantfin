@@ -8,6 +8,8 @@ A repository intended to implement and experiment with various concepts within q
 
 * Efficient Frontier: Optimal portfolio allocation of a bucket of 5 Indian Mid Cap and Large Cap Equities based on the Efficient Frontier concept. Best allocation percentages were derived for maximum Sharpe Ratio and minimum Standard Deviation portfolios.
 
+* A basic implementation of Generalized Autoregressive Conditional Heteroscedastic modelling.
+
 Interest Rate Modeling:
 
 * Vasicek Model: The model describes the movement of an interest rate as a factor composed of market risk, time, and equilibrium value, where the rate tends to revert towards the mean of those factors over time. Essentially, it predicts where interest rates will end up at the end of a given period of time, given current market volatility, the long-run mean interest rate value, and a given market risk factor.
