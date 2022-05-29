@@ -25,3 +25,47 @@ vix_df
 
 """Strategy specification (1-month Moving Average)"""
 
+vix_df['MA'] = vix_df.Close.rolling('30D').mean()
+
+vix_df
+
+"""Comparing 'Close' and MA"""
+
+vix_df_filtered = vix_df[vix_df.Close > 1.5 * vix_df.MA]
+
+vix_df_filtered
+
+"""Further filter to pick values for timedelta > 30 days"""
+
+pd.Series(vix_df_filtered.index)
+
+pd.Series(vix_df_filtered.index).diff()
+
+"""Convert to float"""
+
+pd.Series(vix_df_filtered.index).diff() / np.timedelta64(1, 'D')
+
+"""Filter for 1 month"""
+
+pd.Series(vix_df_filtered.index).diff() / np.timedelta64(1, 'D') >= 30
+
+series = pd.Series(vix_df_filtered.index).diff() / np.timedelta64(1, 'D') >= 30
+
+"""To get around initial value NaT"""
+
+series[0] = True
+
+series
+
+"""Get buying signals"""
+
+signals = vix_df_filtered[series.values]
+signals
+
+"""This specific signal has been triggered 21 times since 1990"""
+
+signals.shape
+
+sp500_df = yf.download('^GSPC', start = '1990-01-01')
+sp500_df.head()
+
