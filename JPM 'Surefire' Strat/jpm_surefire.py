@@ -17,6 +17,8 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
+from pandas.tseries.offsets import DateOffset
+
 """Take in VIX data (1990 till date)"""
 
 vix_df = yf.download('^VIX')
@@ -27,13 +29,13 @@ vix_df
 
 vix_df['MA'] = vix_df.Close.rolling('30D').mean()
 
-vix_df
+vix_df.head()
 
 """Comparing 'Close' and MA"""
 
 vix_df_filtered = vix_df[vix_df.Close > 1.5 * vix_df.MA]
 
-vix_df_filtered
+vix_df_filtered.head()
 
 """Further filter to pick values for timedelta > 30 days"""
 
@@ -60,7 +62,7 @@ series
 """Get buying signals"""
 
 signals = vix_df_filtered[series.values]
-signals
+signals.head()
 
 """This specific signal has been triggered 21 times since 1990"""
 
@@ -69,3 +71,33 @@ signals.shape
 sp500_df = yf.download('^GSPC', start = '1990-01-01')
 sp500_df.head()
 
+signals.index[0]
+
+signals.index[0] + DateOffset(months = 6)
+
+test_ = sp500_df[(sp500_df.index >= signals.index[0]) & 
+                 (sp500_df.index <= signals.index[0] + DateOffset(months = 6))]
+
+test_
+
+(test_.Close.pct_change() + 1).cumprod()
+
+returns = []
+
+for i in range(len(signals)):
+  sub_df = sp500_df[(sp500_df.index >= signals.index[i]) & 
+                 (sp500_df.index <= signals.index[i] + DateOffset(months = 6))]
+  
+  returns.append((sub_df.Close.pct_change() + 1).prod())
+
+final_ret = pd.Series(returns)
+
+final_ret.mean()
+
+(final_ret - 1).plot(kind = 'bar')
+
+"""A return of 6.3525%
+
+---
+fin
+"""
