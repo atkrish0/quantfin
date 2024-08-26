@@ -1,6 +1,5 @@
 import datetime as dt
 import sys
-
 import numpy as np
 import pandas as pd
 import pandas_datareader.data as web
